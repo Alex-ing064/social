@@ -3,18 +3,18 @@ import { ModuleWithProviders } from "@angular/core";
 import { HomeComponent } from "./components/home/home.component";
 import { RegistroComponent } from "./components/registro/registro.component";
 
-const appRoutes : Routes  =[
+const appRoutes: Routes = [
     {
-        path: '',component:HomeComponent
-       
+        path: '', component: HomeComponent
+
 
     },
-    { 
-        
-        path: 'registro',component:RegistroComponent
-    
+    {
+
+        path: 'registro', component: RegistroComponent
+
     }
 ];
 
-export const appRoutingProviders :  any [] = [];
-export const routing : ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
+export const appRoutingProviders: any[] = [];
+export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);

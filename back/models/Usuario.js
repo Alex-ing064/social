@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UsuarioSchema = Schema({
-    nombres: {type: String, required: false},
-    apellidos: {type: String, required: false},
+    nombres: {type: String, required: true},
+    apellidos: {type: String, required: true},
     email: {type: String, required: true},
     pais: {type: String, required: false},
     profesion: {type: String, required: false},

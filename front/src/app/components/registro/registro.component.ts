@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
 declare var passwordStrengthMeter:any;
 
 @Component({
@@ -9,8 +10,12 @@ declare var passwordStrengthMeter:any;
 export class RegistroComponent implements OnInit {
 
   public nivel_constraseña = 0;
+  public usuario :any = {};
+  public msm_error = '';
 
-  constructor() { }
+  constructor(
+    private _usuarioService:UsuarioService
+  ) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -51,6 +56,35 @@ export class RegistroComponent implements OnInit {
         this.nivel_constraseña = 4;
       });
     }, 50);
+  }
+
+  registro(){
+    if(!this.usuario.nombres){
+      this.msm_error = 'Los nombres son requeridos';
+    }else if(!this.usuario.apellidos){
+      this.msm_error = 'Los apellidos son requeridos';
+    }else if(!this.usuario.email){
+      this.msm_error = 'El email es requerido';
+    }else if(!this.usuario.password){
+      this.msm_error = 'La contraseña es requerida';
+    }else if(!this.usuario.password_confirm){
+      this.msm_error = 'La contraseña de confirmación es requerida';
+    }else if(this.usuario.password.length <= 5){
+      this.msm_error = 'La contraseña debe tener mas de 6 caractares';
+    }else if(this.usuario.password != this.usuario.password_confirm){
+      this.msm_error = 'Las contraseñas no coinciden';
+    }else if(this.nivel_constraseña != 4){
+      this.msm_error = 'La contraseña debe ser mas fuerte';
+    }else{
+      this.msm_error = '';
+      console.log(this.usuario);
+      this._usuarioService.create_usuario(this.usuario).subscribe(
+        response=>{
+          console.log(response);
+          
+        }
+      );
+    }
   }
 
 }
