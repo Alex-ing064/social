@@ -1,0 +1,57 @@
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+  
+    <!-- Container START -->
+    <div class="container">
+      <div class="row justify-content-center align-items-center vh-100 py-5">
+        <!-- Main content START -->
+        <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+          <!-- Sign in START -->
+          <div class="card card-body text-center p-4 p-sm-5">
+            <!-- Title -->
+            <h1 class="mb-2">Iniciar sesión</h1>
+            <p class="mb-0">No tienes una cuenta?<a [routerLink]="['/registro']" > Click para registrarte</a></p>
+            <!-- Form START -->
+            <form class="mt-sm-4">
+              <!-- Email -->
+              <div class="mb-3 input-group-lg">
+                <input type="email" class="form-control" placeholder="Correo electrónico" name="email" [(ngModel)]="usuario.email">
+              </div>
+              <!-- New password -->
+              <div class="mb-3 position-relative">
+                <!-- Password -->
+                <div class="input-group input-group-lg">
+                  <input class="form-control fakepassword" type="password" placeholder="Ingresa tu contraseña" name="password" [(ngModel)]="usuario.password">
+                  <span class="input-group-text p-0">
+                    <i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div *ngIf="msm_error" class="form-group" style="    padding-top: 1rem;
+              padding-bottom: 1rem;">
+                <span class="text-danger">{{msm_error}}</span>
+              </div>
+
+              <!-- Remember me -->
+              <div class="mb-3 d-sm-flex justify-content-between">
+                
+                <a href="forgot-password.html">Olvidaste tu contraseña?</a>
+              </div>
+              <!-- Button -->
+              <div class="d-grid">
+                <button type="submit" class="btn btn-lg btn-primary" (click)="login()">Ingresar</button>
+            </div>
+              <!-- Copyright -->
+              <p class="mb-0 mt-3">©2022 <a target="_blank" href="https://www.webestica.com/">Social.</a> All rights reserved</p>
+            </form>
+            <!-- Form END -->
+          </div>
+          <!-- Sign in START -->
+        </div>
+      </div> <!-- Row END -->
+    </div>
+    <!-- Container END -->
+  
+  </main>
+  <!-- **************** MAIN CONTENT END **************** -->
