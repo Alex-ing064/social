@@ -14,7 +14,7 @@ var usuario_routes = require('./routes/usuario');
 mongoose.connect('mongodb://127.0.0.1:27017/social', (err, res) => {
     if (err) console.log(err);
     else app.listen(port, function () {
-        console.log("Servidor en puerto" + port);
+        console.log("Servidor" + port);
     });
 });
 
