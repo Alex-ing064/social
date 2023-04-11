@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
+import { SidebarUsuarioComponent } from './components/cuenta/sidebar-usuario/sidebar-usuario.component';
+import { ConfiguracionUsuarioComponent } from './components/cuenta/configuracion-usuario/configuracion-usuario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     NavComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    SidebarUsuarioComponent,
+    ConfiguracionUsuarioComponent
   ],
   imports: [
     BrowserModule,
