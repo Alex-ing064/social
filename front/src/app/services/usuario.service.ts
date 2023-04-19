@@ -22,5 +22,14 @@ export class UsuarioService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url+'login_usuario',data,{headers:headers})
   }
+  get_usuario(id:any):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'get_usuario/'+ id,{headers:headers})
+  }
+
+  update_usuario(id:any,data:any):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.put(this.url+'update_usuario/'+ id,data,{headers:headers})
+  }
   
 }

@@ -8,6 +8,7 @@ var UsuarioSchema = Schema({
     pais: {type: String, required: false},
     profesion: {type: String, required: false},
     nacimento: {type: Date, required: false},
+    genero:{type:String, require:false},
     telefono: {type: String, required: false},
     avatar: {type: String, default: 'defecto.png', required: false},
 

@@ -1,52 +1,57 @@
 <app-nav></app-nav>
-<!-- **************** MAIN CONTENT START **************** -->
 <main style="    margin-top: 6rem;">
-    <!-- Container START -->
     <div class="container">
         <div class="row">
 
-            <!-- Sidenav START -->
             <div class="col-lg-3">
                 <app-sidebar-usuario></app-sidebar-usuario>
             </div>
-            <!-- Sidenav END -->
 
-            <!-- Main content START -->
             <div class="col-lg-6 vstack gap-4">
-                <!-- Setting Tab content START -->
                 <div class="tab-content py-0 mb-0">
 
-                    <!-- Account setting tab START -->
                     <div class="tab-pane show active fade" id="nav-setting-tab-1">
-                        <!-- Account settings START -->
                         <div class="card mb-4">
 
-                            <!-- Title START -->
                             <div class="card-header border-0 pb-0">
                                 <h1 class="h5 card-title">Configuración de cuenta</h1>
-                                <!-- <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis
-                                    facere voluptatem excepturi architecto ad rerum asperiores, atque modi placeat
-                                    soluta.</p> -->
+                                <p class="mb-0"> #### </p>
                             </div>
-                            <!-- Card header START -->
-                            <!-- Card body START -->
                             <div class="card-body">
-                                <!-- Form settings START -->
-                                <form class="row g-3">
-                                    <!-- First name -->
+                                <div class="row g-3">
+
+
+
+                                    <div class="col-12" *ngIf="msm_succes">
+                                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                                            <div>
+                                                {{msm_succes}}
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-12" *ngIf="msm_succes">
+                                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                                            <div>
+                                                {{msm_succes}}
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-6 col-lg-4">
                                         <label class="form-label">Nombres</label>
-                                        <input type="text" class="form-control" placeholder="Nombres">
+                                        <input type="text" class="form-control" placeholder="Nombres" name="nombres"
+                                            [(ngModel)]="usuario.nombres">
                                     </div>
-                                    <!-- Last name -->
                                     <div class="col-sm-6 col-lg-4">
                                         <label class="form-label">Apellidos</label>
-                                        <input type="text" class="form-control" placeholder="Apellidos">
+                                        <input type="text" class="form-control" placeholder="Apellidos" name="apellidos"
+                                            [(ngModel)]="usuario.apellidos">
                                     </div>
-                                    <!-- Additional name -->
                                     <div class="col-sm-6 col-lg-4">
                                         <label class="form-label">Genero</label>
-                                        <select name="" class="form-control" id="">
+                                        <select class="form-control" id="" name="genero" [(ngModel)]="usuario.genero">
                                             <option value="" selected disabled>Seleccionar</option>
                                             <option value="Masculino">Masculino</option>
                                             <option value="Femenino">Femenino</option>
@@ -57,96 +62,56 @@
                                     <div class="col-sm-6 col-lg-4">
                                         <label class="form-label">Username</label>
                                         <input type="text" class="form-control" placeholder="" readonly
-                                            value="@samlanson">
+                                            [value]="usuario.username">
                                     </div>
                                     <div class="col-sm-6 col-lg-4">
                                         <label class="form-label">Profesion </label>
-                                        <input type="text" class="form-control" placeholder="Profesion">
+                                        <input type="text" class="form-control" placeholder="Profesion" name="profesion"
+                                            [(ngModel)]="usuario.profesion">
                                     </div>
                                     <!-- Birthday -->
                                     <div class="col-sm-6 col-lg-4">
                                         <label class="form-label">Nacimiento </label>
-                                        <input type="date" class="form-control">
+                                        <input type="date" class="form-control" name="nacimiento"
+                                            [(ngModel)]="usuario.nacimiento">
                                     </div>
                                     <!-- Allow checkbox -->
 
                                     <!-- Phone number -->
                                     <div class="col-sm-6">
                                         <label class="form-label">Telefono</label>
-                                        <input type="text" class="form-control" placeholder="Telefono">
+                                        <input type="text" class="form-control" placeholder="Telefono" name="telefono"
+                                            [(ngModel)]="usuario.telefono">
                                         <!-- Add new number -->
                                     </div>
                                     <!-- Phone number -->
 
                                     <div class="col-sm-6">
                                         <label class="form-label">Email</label>
-                                        <input type="text" class="form-control" placeholder="Email">
+                                        <input type="text" class="form-control" placeholder="Email" readonly
+                                            [value]="usuario.email">
 
                                     </div>
                                     <!-- Page information -->
                                     <div class="col-12">
                                         <label class="form-label">Sobre mí</label>
-                                        <textarea class="form-control" rows="4"
-                                            placeholder="Sobre mí persona"></textarea>
-                                        <small>Limite de caracteres: 300</small>
+                                        <textarea class="form-control" rows="4" placeholder="Sobre mí persona"
+                                            name="descripcion" [(ngModel)]="usuario.descripcion"
+                                            (keyup)="validate_descripcion()"></textarea>
+                                        <small>Limite de caracteres: {{usuario.descripcion.length}}</small>
                                     </div>
                                     <!-- Button  -->
                                     <div class="col-12 text-end">
-                                        <button type="submit" class="btn btn-sm btn-primary mb-0">Save changes</button>
+                                        <button class="btn btn-sm btn-primary mb-0" (click)="update()">Guardar
+                                            cambios</button>
                                     </div>
-                                </form>
+                                </div>
                                 <!-- Settings END -->
                             </div>
                             <!-- Card body END -->
                         </div>
                         <!-- Account settings END -->
 
-                        <!-- Change your password START -->
-                        <div class="card">
-                            <!-- Title START -->
-                            <div class="card-header border-0 pb-0">
-                                <h5 class="card-title">Change your password</h5>
-                                <p class="mb-0">See resolved goodness felicity shy civility domestic had but.</p>
-                            </div>
-                            <!-- Title START -->
-                            <div class="card-body">
-                                <!-- Settings START -->
-                                <form class="row g-3">
-                                    <!-- Current password -->
-                                    <div class="col-12">
-                                        <label class="form-label">Current password</label>
-                                        <input type="text" class="form-control" placeholder="">
-                                    </div>
-                                    <!-- New password -->
-                                    <div class="col-12">
-                                        <label class="form-label">New password</label>
-                                        <!-- Input group -->
-                                        <div class="input-group">
-                                            <input class="form-control fakepassword" type="password" id="psw-input"
-                                                placeholder="Enter new password">
-                                            <span class="input-group-text p-0">
-                                                <i
-                                                    class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
-                                            </span>
-                                        </div>
-                                        <!-- Pswmeter -->
-                                        <div id="pswmeter" class="mt-2"></div>
-                                        <div id="pswmeter-message" class="rounded mt-1"></div>
-                                    </div>
-                                    <!-- Confirm password -->
-                                    <div class="col-12">
-                                        <label class="form-label">Confirm password</label>
-                                        <input type="text" class="form-control" placeholder="">
-                                    </div>
-                                    <!-- Button  -->
-                                    <div class="col-12 text-end">
-                                        <button type="submit" class="btn btn-primary mb-0">Update password</button>
-                                    </div>
-                                </form>
-                                <!-- Settings END -->
-                            </div>
-                        </div>
-                        <!-- Card END -->
                     </div>
                     <!-- Account setting tab END -->
 

@@ -64,7 +64,34 @@ const login_usuario = async function(req,res){
     }
 }
 
+const get_usuario = async function(req,res){
+    var id = req.params['id'];
+
+    var usuario = await Usuario.findById({_id:id});
+    res.status(200).send({data:usuario});
+}
+
+const update_usuario = async function(req,res){
+    var id = req.params['id'];
+    var data = req.body;
+
+
+    var usuario = await Usuario.findByIdAndUpdate({_id:id},{
+        nombres: data.nombres,
+        apellidos: data.apellidos,
+        genero: data.genero,
+        nacimiento: data.nacimiento,
+        profesion: data.profesion,
+        telefono: data.telefono,
+        descripcion: data.descripcion
+    });
+
+    res.status(200).send({data:usuario});
+}
+
 module.exports = {
     create_usuario,
-    login_usuario
+    login_usuario,
+    get_usuario,
+    update_usuario
 }
