@@ -7,16 +7,16 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./configuracion-usuario.component.css']
 })
 export class ConfiguracionUsuarioComponent implements OnInit {
-
-  public user :any = {};
-  public usuario : any = {
+  public token = localStorage.getItem('token');
+  public user: any = {};
+  public usuario: any = {
     genero: '',
     descripcion: '',
   };
   public msm_succes = '';
 
   constructor(
-    private _usuarioService:UsuarioService
+    private _usuarioService: UsuarioService
   ) { }
 
   ngOnInit(): void {
@@ -24,27 +24,27 @@ export class ConfiguracionUsuarioComponent implements OnInit {
     this.init_usuario();
   }
 
-  init_usuario(){
-    this._usuarioService.get_usuario(this.user._id).subscribe(
-      response=>{
+  init_usuario() {
+    this._usuarioService.get_usuario(this.user._id,this.token).subscribe(
+      response => {
         this.usuario = response.data;
-        if(!this.usuario.genero) this.usuario.genero = '';
-        if(!this.usuario.descripcion) this.usuario.descripcion = '';
-  
+        if (!this.usuario.genero) this.usuario.genero = '';
+        if (!this.usuario.descripcion) this.usuario.descripcion = '';
+
       }
     );
   }
 
-  validate_descripcion(){
-   if(this.usuario.descripcion.length > 300) this.usuario.descripcion = this.usuario.descripcion.substring(0,300);
+  validate_descripcion() {
+    if (this.usuario.descripcion.length > 300) this.usuario.descripcion = this.usuario.descripcion.substring(0, 300);
   }
 
-  update(){
+  update() {
     console.log(this.usuario);
-    this._usuarioService.update_usuario(this.usuario._id,this.usuario).subscribe(
-      response=>{
+    this._usuarioService.update_usuario(this.usuario._id, this.usuario, this.token).subscribe(
+      response => {
         console.log(response);
-        if(response.data != undefined){
+        if (response.data != undefined) {
           this.msm_succes = 'Se actualizó los datos de la cuenta';
         }
       }
