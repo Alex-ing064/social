@@ -13,6 +13,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
 import { SidebarUsuarioComponent } from './components/cuenta/sidebar-usuario/sidebar-usuario.component';
 import { ConfiguracionUsuarioComponent } from './components/cuenta/configuracion-usuario/configuracion-usuario.component';
+import { PasswordUsuarioComponent } from './components/cuenta/password-usuario/password-usuario.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ConfiguracionUsuarioComponent } from './components/cuenta/configuracion
     RegistroComponent,
     LoginComponent,
     SidebarUsuarioComponent,
-    ConfiguracionUsuarioComponent
+    ConfiguracionUsuarioComponent,
+    PasswordUsuarioComponent
   ],
   imports: [
     BrowserModule,
