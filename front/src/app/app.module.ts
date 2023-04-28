@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SidebarUsuarioComponent } from './components/cuenta/sidebar-usuario/sidebar-usuario.component';
 import { ConfiguracionUsuarioComponent } from './components/cuenta/configuracion-usuario/configuracion-usuario.component';
 import { PasswordUsuarioComponent } from './components/cuenta/password-usuario/password-usuario.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PasswordUsuarioComponent } from './components/cuenta/password-usuario/p
     LoginComponent,
     SidebarUsuarioComponent,
     ConfiguracionUsuarioComponent,
-    PasswordUsuarioComponent
+    PasswordUsuarioComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

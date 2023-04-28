@@ -5,6 +5,7 @@ import { RegistroComponent } from "./components/registro/registro.component";
 import { LoginComponent } from "./components/login/login.component";
 import { ConfiguracionUsuarioComponent } from "./components/cuenta/configuracion-usuario/configuracion-usuario.component";
 import { PasswordUsuarioComponent } from "./components/cuenta/password-usuario/password-usuario.component";
+import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 
 const appRoutes: Routes = [
     {
@@ -22,6 +23,12 @@ const appRoutes: Routes = [
     {
 
         path: 'login', component: LoginComponent
+
+    }
+    ,
+    {
+
+        path: 'reset-account', component: ResetPasswordComponent
 
     }
     ,

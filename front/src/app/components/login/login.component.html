@@ -23,7 +23,7 @@
                 <span class="text-danger">{{msm_error}}</span>
               </div>
               <div class="mb-3 d-sm-flex justify-content-between">
-                                <a href="forgot-password.html">Olvidaste tu contraseña?</a>
+                                <a [routerLink]="['/reset-account']">Olvidaste tu contraseña?</a>
               </div>
               <div class="d-grid">
                 <button type="submit" class="btn btn-lg btn-primary" (click)="login()">Ingresar</button>
