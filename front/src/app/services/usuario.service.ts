@@ -42,4 +42,12 @@ export class UsuarioService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url+'validate_usuario',data,{headers:headers})
   }
+  validate_code(code:any,email:any):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'validate_code/'+code+'/'+email,{headers:headers})
+  }
+  reset_password(email:any,data:any):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.url+'reset_password/'+ email,data,{headers:headers})
+  }
 }

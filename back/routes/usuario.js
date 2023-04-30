@@ -9,5 +9,7 @@ app.get('/get_usuario/:id',auth.auth,usuarioController.get_usuario);
 app.put('/update_usuario/:id',auth.auth,usuarioController.update_usuario);
 app.put('/update_password/:id',auth.auth,usuarioController.update_password);
 app.post('/validate_usuario',usuarioController.validate_usuario);
+app.get('/validate_code/:code/:email',usuarioController.validate_code);
+app.post('/reset_password/:email', usuarioController.reset_password);
 
 module.exports = app;

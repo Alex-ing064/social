@@ -160,6 +160,35 @@ const validate_usuario = async function (req, res) {
     }
 }
 
+const validate_code = async function (req, res) {
+    let code = req.params['code'];
+    let email = req.params['email'];
+
+    let usuario = await Usuario.findOne({ email: email });
+
+    if (code == usuario.code_reset) {
+        res.status(200).send({ data: true });
+    } else {
+        res.status(200).send({ data: false });
+    }
+
+}
+
+const reset_password = async function (req, res) {
+    var email = req.params['email'];
+    var data = req.body;
+
+    var usuario = await Usuario.findOne({ email: email });
+
+    bcrypt.genSalt(saltRounds, function (err, salt) {
+        bcrypt.hash(data.password_new, salt, async function (err, hash) {
+            await Usuario.findByIdAndUpdate({ _id: usuario._id }, {
+                password: hash
+            });
+            res.status(200).send({ data: usuario });
+        });
+    });
+}
 function email_code_reset(code, email) {
     try {
         var readHTML = function (path, callback) {
@@ -177,8 +206,7 @@ function email_code_reset(code, email) {
             host: 'smtp.gmail.com',
             auth: {
                 user: 'ingcabezas2204@gmail.com',
-                pass: 'ingsis2204'
-
+                pass: 'jmirdlkyepzjcrdl'
             }
         }));
 
@@ -214,5 +242,7 @@ module.exports = {
     get_usuario,
     update_usuario,
     update_password,
-    validate_usuario
+    validate_usuario,
+    validate_code,
+    reset_password
 }

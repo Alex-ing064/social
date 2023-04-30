@@ -18,6 +18,9 @@ var UsuarioSchema = Schema({
     password: {type: String, required: true},
     code_reset: {type: String, required: false},
 
+
+//Contraseña de aplicación generada jmirdlkyepzjcrdl
+
 });
 
 module.exports = mongoose.model('usuario',UsuarioSchema);
