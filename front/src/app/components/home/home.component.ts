@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-declare var e: any;
+import { HistoriaService } from 'src/app/services/historia.service';
+declare var e:any;
 
 
 @Component({
@@ -9,37 +10,69 @@ declare var e: any;
 })
 export class HomeComponent implements OnInit {
 
-  public user: any = {};
+  public token = localStorage.getItem('token');
+  public user : any = {};
   public msm_story_error = '';
+  public str_image : any = '';
+  public image : any = undefined;
 
-  constructor() {
+  constructor(
+    private _historiaService:HistoriaService
+  ) { 
 
   }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
     console.log(this.user);
-
+    
     e.tinySlider();
   }
 
-  uploadImage(event: any) {
+  uploadImage(event:any){
     var file;
-    if (event.target.files && event.target.files[0]) {
+    if(event.target.files && event.target.files[0]){
       file = event.target.files[0];
     }
 
     console.log(file);
-
-    if (file.size <= 200000) {
+    
+    if(file.size <= 200000){
       //
-      if (file.type == 'image/webp' || file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg' || file.type == 'image/gif') {
-
-      } else {
+      if(file.type == 'image/webp'||file.type == 'image/png'||file.type == 'image/jpg'||file.type == 'image/jpeg'||file.type == 'image/gif'){
+        const reader = new FileReader();
+        reader.onload = e => this.str_image = reader.result;
+        reader.readAsDataURL(file);
+        
+        this.image = file;
+        this.save();
+      }else{
         this.msm_story_error = 'El formato es incorrecto.';
+        this.image = undefined;
       }
-    } else {
+    }else{
       this.msm_story_error = 'Se superó el tamaño máximo.';
+      this.image = undefined;
     }
+  }
+
+  removeImage(){
+    this.str_image = '';
+    this.image = undefined;
+  }
+
+  save(){
+    let data = {
+      usuario: this.user._id,
+      imagen: this.image
+    };
+    this._historiaService.createStory(data,this.token).subscribe(
+      response=>{
+        console.log(response);
+        
+      }
+    );
+    console.log(data);
+    
   }
 }

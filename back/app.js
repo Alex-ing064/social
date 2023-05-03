@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 
 app.use('/api', test_routes);
 app.use('/api', usuario_routes);
-app.usevar('/api', historia_routes);
+app.use('/api', historia_routes);
 
 
 

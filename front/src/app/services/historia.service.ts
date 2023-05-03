@@ -11,5 +11,17 @@ export class HistoriaService {
   public url = GLOBAL.url;
 
 
-  constructor() { }
+  constructor(
+    private _http: HttpClient
+  ) {
+  }
+
+  createStory(data: any, token: any): Observable<any> {
+    let headers = new HttpHeaders({ 'Authorization': token });
+    const fd = new FormData();
+    fd.append('imagen', data.imagen)
+    fd.append('usuario', data.usuario)
+
+    return this._http.post(this.url + 'createStory', fd, { headers: headers })
+  }
 }
