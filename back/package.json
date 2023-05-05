@@ -23,6 +23,7 @@
     "nodemailer": "^6.9.1",
     "nodemailer-smtp-transport": "^2.7.4",
     "npm": "^9.6.4",
+    "socket.io": "^4.6.1",
     "unique-username-generator": "^1.1.1"
   },
   "devDependencies": {

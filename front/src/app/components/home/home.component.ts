@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoriaService } from 'src/app/services/historia.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 declare var e:any;
+import { io } from "socket.io-client";
+
 
 
 @Component({
@@ -15,9 +18,12 @@ export class HomeComponent implements OnInit {
   public msm_story_error = '';
   public str_image : any = '';
   public image : any = undefined;
+  public socket = io("http://localhost:4201",{transports: ['websocket']});
+  public usuarios : Array<any> = [];
 
   constructor(
-    private _historiaService:HistoriaService
+    private _historiaService:HistoriaService,
+    private _usuarioService:UsuarioService
   ) { 
 
   }
@@ -27,6 +33,7 @@ export class HomeComponent implements OnInit {
     console.log(this.user);
     
     e.tinySlider();
+    this.init_usuario();
   }
 
   uploadImage(event:any){
@@ -75,4 +82,24 @@ export class HomeComponent implements OnInit {
     console.log(data);
     
   }
+
+  init_usuario(){
+    this._usuarioService.get_usuario_random(this.token).subscribe(
+      response=>{
+        this.usuarios = response.data;
+      }
+    );
+  }
+
+  send_invitacion(id:any){
+    this._usuarioService.send_invitacion_amistad({
+      usuario_destinatario: id
+    },this.token).subscribe(
+      response=>{
+        console.log(response);
+        this.socket.emit('send-invitacion',{_id:id});
+      }
+    );
+  }
+
 }

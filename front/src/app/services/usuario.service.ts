@@ -55,6 +55,19 @@ export class UsuarioService {
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url+'reset_password/'+email,data,{headers:headers})
   }
+  get_usuario_random(token:any):Observable<any>{
+    let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+    return this._http.get(this.url+'get_usuario_random',{headers:headers})
+  }
+  send_invitacion_amistad(data:any,token:any):Observable<any>{
+    let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+    return this._http.post(this.url+'send_invitacion_amistad',data,{headers:headers})
+  }
+
+  get_invitaciones_usuario (token:any):Observable<any>{
+    let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+    return this._http.get(this.url+'get_invitaciones_usuario',{headers:headers})
+  }
 
   isAuthenticate(){
     const token :any = localStorage.getItem('token');
