@@ -16,6 +16,7 @@ import { ConfiguracionUsuarioComponent } from './components/cuenta/configuracion
 import { PasswordUsuarioComponent } from './components/cuenta/password-usuario/password-usuario.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { InvitacionesUsuarioComponent } from './components/cuenta/invitaciones-usuario/invitaciones-usuario.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
     ConfiguracionUsuarioComponent,
     PasswordUsuarioComponent,
     ResetPasswordComponent,
-    DateAgoPipe
+    DateAgoPipe,
+    InvitacionesUsuarioComponent
   ],
   imports: [
     BrowserModule,

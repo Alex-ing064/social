@@ -17,6 +17,10 @@ io.on("connection", (socket) => {
    socket.on('send-invitacion',function(data){
         io.emit('new-invitacion',data);
     }); 
+
+    socket.on('set-invitacion',function(data){
+        io.emit('set-new-invitacion',data);
+    }); 
 });
 
 var test_routes = require('./routes/test');

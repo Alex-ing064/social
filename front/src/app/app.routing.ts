@@ -7,6 +7,7 @@ import { ConfiguracionUsuarioComponent } from "./components/cuenta/configuracion
 import { PasswordUsuarioComponent } from "./components/cuenta/password-usuario/password-usuario.component";
 import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 import { AuthGuard } from "./guards/auth.guard";
+import { InvitacionesUsuarioComponent } from "./components/cuenta/invitaciones-usuario/invitaciones-usuario.component";
 
 const appRoutes: Routes = [
     {
@@ -42,6 +43,11 @@ const appRoutes: Routes = [
     {
 
         path: 'cuenta/password', component: PasswordUsuarioComponent, canActivate: [AuthGuard]
+
+    },
+    {
+
+        path: 'cuenta/invitaciones', component: InvitacionesUsuarioComponent, canActivate: [AuthGuard]
 
     }
 ];

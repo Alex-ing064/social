@@ -1,0 +1,79 @@
+<app-nav></app-nav>
+<!-- **************** MAIN CONTENT START **************** -->
+<main style="    margin-top: 6rem;">
+    <!-- Container START -->
+    <div class="container">
+      <div class="row">
+  
+        <!-- Sidenav START -->
+        <div class="col-lg-3">
+            <app-sidebar-usuario></app-sidebar-usuario>
+        </div>
+        <!-- Sidenav END -->
+  
+        <!-- Main content START -->
+        <div class="col-lg-6 vstack gap-4">
+        <!-- Setting Tab content START -->
+        <div class="tab-content py-0 mb-0">
+
+            <!-- Account setting tab START -->
+            <div class="tab-pane show active fade" id="nav-setting-tab-1">
+            <!-- Account settings START -->
+            <div class="card mb-4">
+                
+                <!-- Title START -->
+                <div class="card-header border-0 pb-0">
+                <h1 class="h5 card-title">Invitaciones de amistad</h1>
+                <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis facere voluptatem excepturi architecto ad rerum asperiores, atque modi placeat soluta.</p>
+                </div>
+                <!-- Card header START -->
+                <!-- Card body START -->
+                <div class="card-body">
+                  <ul style="    list-style: none;    padding-left: 0px;">
+                    <li *ngFor="let item of invitaciones">
+                      <div class="rounded d-sm-flex border-0 mb-1 p-3 position-relative">
+                         <!-- Avatar -->
+                        <div class="avatar text-center">
+                          <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="">
+                        </div>
+                        <!-- Info -->
+                        <div class="mx-sm-3 my-2 my-sm-0">
+                            <a href="#!" class="stretched-link small mb-0 text-secondary">
+                              <b>{{item.usuario_origen.nombres}} {{item.usuario_origen.apellidos}}</b> 
+                            </a>
+                            <p class="small mb-0" *ngIf="item.usuario_origen.profesion">{{item.usuario_origen.profesion}}</p>
+                            <p class="small mb-0" *ngIf="!item.usuario_origen.profesion">{{item.usuario_origen.email}}</p>
+                        </div>
+                        <!-- Action -->
+                        <div class="d-flex ms-auto">
+                          <a (click)="set_invitacion('Aprobar',item._id)" class="text-primary" style="margin-right: 1rem;cursor: pointer;">
+                            <span>Aceptar</span>
+                          </a>
+                          
+                          <a (click)="set_invitacion('Denegar',item._id)" class="text-danger" style="cursor: pointer;">
+                            <span>Denegar</span>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+            <!-- Card body END -->
+            </div>
+            <!-- Account settings END -->
+
+            </div>
+            <!-- Account setting tab END -->
+
+            
+
+        </div>
+        <!-- Setting Tab content END -->
+        </div>
+  
+      </div> <!-- Row END -->
+    </div>
+    <!-- Container END -->
+  
+  </main>
+  <!-- **************** MAIN CONTENT END **************** -->

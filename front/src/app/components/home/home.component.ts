@@ -30,6 +30,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
+
+    this.socket.on('set-new-invitacion', function (data: any) {
+      console.log(data);
+      if (data.origen.toString() == this.user._id || data.destinatario.toString() == this.user._id ) {
+        this.init_usuario();
+      }
+
+
+    }.bind(this));
     console.log(this.user);
     
     e.tinySlider();

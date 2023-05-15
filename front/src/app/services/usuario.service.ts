@@ -64,10 +64,15 @@ export class UsuarioService {
     return this._http.post(this.url+'send_invitacion_amistad',data,{headers:headers})
   }
 
-  get_invitaciones_usuario (token:any):Observable<any>{
+  get_invitaciones_usuario (tipo:any, token:any):Observable<any>{
     let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
-    return this._http.get(this.url+'get_invitaciones_usuario',{headers:headers})
+    return this._http.get(this.url+'get_invitaciones_usuario/'+ tipo,{headers:headers})
   }
+  aceptar_denegar_invitacion(tipo: any, id: any, token: any): Observable<any> {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': token });
+    return this._http.get(this.url + 'aceptar_denegar_invitacion/' + tipo + '/' + id, { headers: headers })
+  }
+
 
   isAuthenticate(){
     const token :any = localStorage.getItem('token');
