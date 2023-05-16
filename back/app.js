@@ -19,6 +19,8 @@ io.on("connection", (socket) => {
     }); 
 
     socket.on('set-invitacion',function(data){
+        //VALIDAR CARGA UTIL
+        console.log('data');
         io.emit('set-new-invitacion',data);
     }); 
 });
@@ -30,7 +32,7 @@ var historia_routes = require('./routes/historia');
 mongoose.connect('mongodb://127.0.0.1:27017/social',(err,res)=>{
     if(err) console.log(err);
     else httpServer.listen(port,function(){
-        console.log("Servidor corriento " + port);
+        console.log("umariana campus social, corriendo con exito en el servidor local "+ port);
     });
 });
 

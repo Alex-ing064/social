@@ -46,11 +46,11 @@
                         </div>
                         <!-- Action -->
                         <div class="d-flex ms-auto">
-                          <a (click)="set_invitacion('Aprobar',item._id)" class="text-primary" style="margin-right: 1rem;cursor: pointer;">
+                          <a (click)="set_invitacion('Aprobar',item._id, item)" class="text-primary" style="margin-right: 1rem;cursor: pointer;">
                             <span>Aceptar</span>
                           </a>
                           
-                          <a (click)="set_invitacion('Denegar',item._id)" class="text-danger" style="cursor: pointer;">
+                          <a (click)="set_invitacion('Denegar',item._id, item)" class="text-danger" style="cursor: pointer;">
                             <span>Denegar</span>
                           </a>
                         </div>

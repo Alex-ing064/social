@@ -40,10 +40,14 @@ export class InvitacionesUsuarioComponent implements OnInit {
     );
   }
 
-  set_invitacion(tipo:any,id:any){
+  set_invitacion(tipo:any,id:any,item:any){
     this._usuarioService.aceptar_denegar_invitacion(tipo,id,this.token).subscribe(
       response=>{
         console.log(response);
+        this.socket.emit('set-invitacion', {
+          origen:item.usuario_origen._id,
+          destinatario: item.usuario_destinatario
+        });
         this.init_invitaciones();
       }
     );
