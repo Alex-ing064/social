@@ -3,7 +3,7 @@ import { HistoriaService } from 'src/app/services/historia.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 declare var e:any;
 import { io } from "socket.io-client";
-
+declare var $:any;
 
 
 @Component({
@@ -30,16 +30,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
-
-    this.socket.on('set-new-invitacion', function (data: any) {
+    
+    this.socket.on('set-new-invitacion',function(data:any){
       console.log(data);
-      if (data.origen.toString() == this.user._id || data.destinatario.toString() == this.user._id ) {
+      if(data.origen.toString() == this.user._id || data.destinario.toString() == this.user._id){
         this.init_usuario();
       }
-
-
     }.bind(this));
-    console.log(this.user);
     
     e.tinySlider();
     this.init_usuario();
@@ -61,7 +58,6 @@ export class HomeComponent implements OnInit {
         reader.readAsDataURL(file);
         
         this.image = file;
-        this.save();
       }else{
         this.msm_story_error = 'El formato es incorrecto.';
         this.image = undefined;
@@ -85,7 +81,7 @@ export class HomeComponent implements OnInit {
     this._historiaService.createStory(data,this.token).subscribe(
       response=>{
         console.log(response);
-        
+        $('#openStory').modal('hide')
       }
     );
     console.log(data);
