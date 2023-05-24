@@ -1,9 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//modelo que representa el amigo con la invitacion
-//id amigo que envia peticion de invitacion
-//id amigo que recibe
 
 var Usuario_amigoSchema = Schema({
     usuario_origen: { type: Schema.ObjectId, ref: 'usuario', require: true },

@@ -3,8 +3,9 @@ import { HistoriaService } from 'src/app/services/historia.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 declare var e:any;
 import { io } from "socket.io-client";
+import { GLOBAL } from 'src/app/services/GLOBAL';
 declare var $:any;
-
+declare var tns:any;
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,10 @@ export class HomeComponent implements OnInit {
   public image : any = undefined;
   public socket = io("http://localhost:4201",{transports: ['websocket']});
   public usuarios : Array<any> = [];
+  public historias : Array<any> = [];
+  public url = GLOBAL.url;
+  public load_historias=true;
+
 
   constructor(
     private _historiaService:HistoriaService,
@@ -38,16 +43,21 @@ export class HomeComponent implements OnInit {
       }
     }.bind(this));
     
-    e.tinySlider();
+    
     this.init_usuario();
     this.init_historias();
   }
 
   init_historias(){
+    this.load_historias=true;
     this._usuarioService.obtener_historias_usuario(this.token).subscribe(
       response=>{
-        console.log(response);
-        
+        this.historias = response.data;
+        setTimeout(() => {
+          e.tinySlider();
+        }, 50);
+        this.load_historias=false;
+
       }
     );
   }

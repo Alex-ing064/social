@@ -290,35 +290,7 @@ const aceptar_denegar_invitacion = async function(req,res){
     }
 }
 
-const obtener_historias_usuario = async function(req,res){
-    if (req.user) {
-        let amigos = await Usuario_amigo.find({usuario_origen:req.user.sub}).populate('usuario_amigo');
 
-        //item
-        let today = Date.parse(new Date())/1000;
-        var historias_vigentes_ = [];
-
-        for(var item of amigos){
-            var historias_vigentes = [];
-            var historias = await Historia.find({usuario: item.usuario_amigo._id});
-
-            for(var subitem of historias){
-                var tt_created = Date.parse(subitem.createdAt)/1000;
-                var tt_exp = Date.parse(subitem.exp)/1000;
-
-                if(today >= tt_created && tt_created <= tt_exp){
-                    historias_vigentes.push(subitem);
-                    historias_vigentes_.push(subitem);
-                }
-            }
-
-        }
-
-        res.status(200).send({data:historias_vigentes_});
-    } else {
-        res.status(403).send({message: 'NoAccess'}); 
-    }
-}
 
 
 
@@ -385,5 +357,5 @@ module.exports = {
     get_usuario_random,
     get_invitaciones_usuario,
     aceptar_denegar_invitacion,
-    obtener_historias_usuario
+    
 }

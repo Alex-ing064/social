@@ -20,6 +20,5 @@ app.get('/get_usuario_random',auth.auth,usuarioController.get_usuario_random);
 app.get('/get_invitaciones_usuario/:tipo',auth.auth,usuarioController.get_invitaciones_usuario);
 app.get('/aceptar_denegar_invitacion/:tipo/:id',auth.auth,usuarioController.aceptar_denegar_invitacion);
 
-app.get('/obtener_historias_usuario',auth.auth,usuarioController.obtener_historias_usuario);
 
 module.exports = app;
