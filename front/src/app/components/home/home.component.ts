@@ -40,6 +40,16 @@ export class HomeComponent implements OnInit {
     
     e.tinySlider();
     this.init_usuario();
+    this.init_historias();
+  }
+
+  init_historias(){
+    this._usuarioService.obtener_historias_usuario(this.token).subscribe(
+      response=>{
+        console.log(response);
+        
+      }
+    );
   }
 
   uploadImage(event:any){

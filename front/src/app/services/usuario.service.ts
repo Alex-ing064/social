@@ -73,6 +73,10 @@ export class UsuarioService {
     return this._http.get(this.url + 'aceptar_denegar_invitacion/' + tipo + '/' + id, { headers: headers })
   }
 
+  obtener_historias_usuario(token: any): Observable<any> {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': token });
+    return this._http.get(this.url + 'obtener_historias_usuario', { headers: headers })
+  }
 
   isAuthenticate(){
     const token :any = localStorage.getItem('token');
