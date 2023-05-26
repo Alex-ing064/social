@@ -312,8 +312,8 @@ function email_code_reset(code,email){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoarca02@gmail.com',
-                pass: 'ogfvvlxksebtrkfj'
+                user: '',
+                pass: ''
             }
         }));
     
@@ -324,7 +324,7 @@ function email_code_reset(code,email){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: '"Red Social" <diegoarca02@gmail.com>',
+                from: '"Red Social" <>',
                 to: email,
                 subject: 'Código de restablecimiento',
                 html: htmlToSend

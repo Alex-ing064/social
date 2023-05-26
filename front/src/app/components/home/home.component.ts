@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoriaService } from 'src/app/services/historia.service';
+import { HistoriaService } from "src/app/services/HistoriaService";
 import { UsuarioService } from 'src/app/services/usuario.service';
 declare var e:any;
 import { io } from "socket.io-client";

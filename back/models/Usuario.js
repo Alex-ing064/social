@@ -19,7 +19,6 @@ var UsuarioSchema = Schema({
     code_reset: {type: String, required: false},
 
 
-//Contraseña de aplicación generada jmirdlkyepzjcrdl
 
 });
 
