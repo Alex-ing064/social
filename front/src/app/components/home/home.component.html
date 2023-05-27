@@ -165,10 +165,10 @@
             <!-- Main content START -->
             <div class="col-md-8 col-lg-6 vstack gap-4">
                 <!-- Story START -->
-                <div class="tiny-slider arrow-hover overflow-hidden" *ngIf="!load_historias">
-                    <div *ngIf="!load_historias" class="tiny-slider-inner ms-n4" data-arrow="true" data-dots="true" data-loop="false"
-                        data-autoplay="false" data-items-xl="4" data-items-lg="3" data-items-md="3" data-items-sm="3"
-                        data-items-xs="2" data-gutter="12" data-edge="30">
+                <div class="tiny-slider arrow-hover overflow-hidden">
+                    <div *ngIf="!load_historias" class="tiny-slider-inner ms-n4" data-arrow="true" data-dots="true"
+                        data-loop="false" data-autoplay="false" data-items-xl="4" data-items-lg="3" data-items-md="3"
+                        data-items-sm="3" data-items-xs="2" data-gutter="12" data-edge="30">
 
                         <!-- Slider items -->
                         <div>
@@ -186,7 +186,7 @@
 
                         <!-- Slider items -->
                         <div *ngFor="let item of historias">
-                            <!-- Card START -->
+
                             <div class="card card-overlay-bottom border-0 position-relative h-150px"
                                 style="background-image:url({{url}}obtener_historia_img/{{item.imagen}}); background-position: center left; background-size: cover;">
                                 <div class="card-img-overlay d-flex align-items-center p-2">
@@ -201,22 +201,24 @@
                             </div>
                             <!-- Card END -->
                         </div>
-                        <div class="row" *ngIf="load_historias">
-                            <div class="col lazyColor h-150px" style="margin-right: 1rem;">
-
-                            </div>
-                            <div class="col lazyColor h-150px" style="margin-right: 1rem;">
-
-                            </div>
-                            <div class="col lazyColor h-150px" style="margin-right: 1rem;">
-
-                            </div>
-                            <div class="col lazyColor h-150px" style="margin-right: 1rem;">
-
-                            </div>
-                        </div>
-
                     </div>
+
+                    <div class="row" *ngIf="load_historias">
+                        <div class="col lazyColor h-150px" style="margin-right: 1rem;">
+
+                        </div>
+                        <div class="col lazyColor h-150px" style="margin-right: 1rem;">
+
+                        </div>
+                        <div class="col lazyColor h-150px" style="margin-right: 1rem;">
+
+                        </div>
+                        <div class="col lazyColor h-150px" style="margin-right: 1rem;">
+
+                        </div>
+                    </div>
+
+
                 </div>
                 <!-- Story END -->
 
@@ -668,7 +670,8 @@
                         <p>I'm so privileged to be involved in the <a href="#!">@bootstrap </a>hiring process!
                             Interviewing with their team was fun and I hope this can be a valuable resource for folks!
                             <a href="#!"> #inclusivebusiness</a> <a href="#!"> #internship</a> <a href="#!"> #hiring</a>
-                            <a href="#"> #apply </a></p>
+                            <a href="#"> #apply </a>
+                        </p>
                         <!-- Card feed grid START -->
                         <div class="d-flex justify-content-between">
                             <div class="row g-3">
@@ -1624,7 +1627,8 @@
                     <!-- Card body START -->
                     <div class="card-body pb-0">
                         <p>Comfort reached gay perhaps chamber his <a href="#!">#internship</a> <a href="#!">#hiring</a>
-                            <a href="#!">#apply</a> </p>
+                            <a href="#!">#apply</a>
+                        </p>
                     </div>
                     <!-- Card img -->
                     <div class="overflow-hidden fullscreen-video w-100">
