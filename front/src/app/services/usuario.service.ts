@@ -78,6 +78,8 @@ export class UsuarioService {
     return this._http.get(this.url + 'obtener_historias_usuario', { headers: headers })
   }
 
+ 
+
   isAuthenticate(){
     const token :any = localStorage.getItem('token');
 

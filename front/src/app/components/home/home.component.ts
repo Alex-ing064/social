@@ -6,6 +6,7 @@ import { io } from "socket.io-client";
 import { GLOBAL } from 'src/app/services/GLOBAL';
 declare var $: any;
 declare var tns: any;
+const src = "scripts/jquery.js"
 
 @Component({
   selector: 'app-home',
@@ -57,7 +58,6 @@ export class HomeComponent implements OnInit {
           e.tinySlider();
         }, 50);
         this.load_historias = false;
-
       }
     );
   }

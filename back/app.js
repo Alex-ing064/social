@@ -19,7 +19,6 @@ io.on("connection", (socket) => {
     }); 
 
     socket.on('set-invitacion',function(data){
-        //VALIDAR CARGA UTIL
         console.log('data');
         io.emit('set-new-invitacion',data);
     }); 

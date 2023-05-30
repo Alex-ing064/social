@@ -13,7 +13,6 @@ app.get('/validate_code/:code/:email',usuarioController.validate_code);
 app.post('/reset_password/:email', usuarioController.reset_password);
 
 
-//Invitacion de amista
 
 app.post('/send_invitacion_amistad',auth.auth,usuarioController.send_invitacion_amistad);
 app.get('/get_usuario_random',auth.auth,usuarioController.get_usuario_random);

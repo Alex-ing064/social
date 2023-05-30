@@ -1,16 +1,12 @@
 <app-nav></app-nav>
 
-<!-- **************** MAIN CONTENT START **************** -->
 <main style="margin-top: 5rem !important;">
 
-    <!-- Container START -->
     <div class="container">
         <div class="row g-4">
 
-            <!-- Sidenav START -->
             <div class="col-lg-3">
 
-                <!-- Advanced filter responsive toggler START -->
                 <div class="d-flex align-items-center d-lg-none">
                     <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
@@ -151,10 +147,6 @@
                                     <a class="nav-link" href="privacy-and-terms.html">Privacy & terms</a>
                                 </li>
                             </ul>
-                            <!-- Helper link END -->
-                            <!-- Copyright -->
-                            <p class="small text-center mt-1">©2022 <a class="text-body" target="_blank"
-                                    href="https://www.webestica.com/"> Webestica </a></p>
                         </div>
                     </div>
                 </nav>
@@ -1908,24 +1900,18 @@
 
         </div> <!-- Row END -->
     </div>
-    <!-- Container END -->
 
 </main>
-<!-- **************** MAIN CONTENT END **************** -->
 
 
-<!-- Modal create Feed photo START -->
 <div class="modal fade" id="openStory" tabindex="-1" aria-labelledby="feedActionPhotoLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <!-- Modal feed header START -->
             <div class="modal-header">
                 <h5 class="modal-title" id="feedActionPhotoLabel">Subir mi día</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <!-- Modal feed header END -->
 
-            <!-- Modal feed body START -->
             <div class="modal-body">
 
                 <ng-container *ngIf="!str_image">
@@ -1951,12 +1937,10 @@
                 </ng-container>
 
                 <div class="d-flex align-items-center">
-                    <!-- Avatar -->
                     <div class="avatar avatar-story me-2">
                         <a href="#!"> <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="">
                         </a>
                     </div>
-                    <!-- Info -->
                     <div *ngIf="user">
                         <div class="nav nav-divider">
                             <h6 class="nav-item card-title mb-0"> <a> {{user.nombres}} {{user.apellidos}} </a></h6>
@@ -1966,16 +1950,11 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal feed body END -->
 
-            <!-- Modal feed footer -->
             <div class="modal-footer ">
-                <!-- Button -->
                 <button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-success-soft" (click)="save()">Subir historia</button>
             </div>
-            <!-- Modal feed footer -->
         </div>
     </div>
 </div>
-<!-- Modal create Feed photo END -->
