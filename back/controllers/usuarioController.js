@@ -282,12 +282,6 @@ const aceptar_denegar_invitacion = async function(req,res){
     }
 }
 
-
-
-
-
-
-
 function email_code_reset(code,email){
     try {
         var readHTML = function(path,callback){
