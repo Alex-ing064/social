@@ -11,3 +11,4 @@ var HistoriaSchema = Schema({
 });
 
 module.exports = mongoose.model('historia', HistoriaSchema);
+//module.exports = mongoose.model('historia', HistoriaSchema);
