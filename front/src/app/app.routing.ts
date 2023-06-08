@@ -8,6 +8,7 @@ import { PasswordUsuarioComponent } from "./components/cuenta/password-usuario/p
 import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 import { AuthGuard } from "./guards/auth.guard";
 import { InvitacionesUsuarioComponent } from "./components/cuenta/invitaciones-usuario/invitaciones-usuario.component";
+import { UsuariosComponent } from "./components/usuarios/usuarios.component";
 
 const appRoutes: Routes = [
     {
@@ -49,7 +50,13 @@ const appRoutes: Routes = [
 
         path: 'cuenta/invitaciones', component: InvitacionesUsuarioComponent, canActivate: [AuthGuard]
 
+    },
+    {
+
+        path: 'search', component:  UsuariosComponent, canActivate: [AuthGuard]
+
     }
+    
 ];
 
 export const appRoutingProviders: any[] = [];

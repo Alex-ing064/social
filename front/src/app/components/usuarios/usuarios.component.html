@@ -1,0 +1,61 @@
+<app-nav></app-nav>
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main style="margin-top: 5rem !important;">
+  
+    <!-- Container START -->
+    <div class="container">
+      <div class="row g-4">
+  
+        <!-- Sidenav START -->
+        <div class="col-lg-3">
+          <app-card-perfil></app-card-perfil>
+        </div>
+        <!-- Sidenav END -->
+  
+        <!-- Main content START -->
+        <div class="col-md-8 col-lg-6 vstack gap-4">
+          
+          <app-card-historias></app-card-historias>
+          
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <!-- Avatar -->
+                          <div class="avatar avatar-story me-2">
+                            <a href="#!"> <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt=""> </a>
+                          </div>
+                          <!-- Info -->
+                          <div>
+                            <div class="nav nav-divider">
+                              <h6 class="nav-item card-title mb-0"> <a href="#!"> Lori Ferguson </a></h6>
+                              <span class="nav-item small"> 2hr</span>
+                            </div>
+                            <p class="mb-0 small">Web Developer at Webestica</p>
+                          </div>
+                        </div>
+                        <!-- Card feed action dropdown START -->
+                        <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" style="cursor: pointer;" ><i class="fa-solid fa-plus"> </i></a>
+                        <!-- Card feed action dropdown END -->
+                      </div>
+                </div>
+            </div>
+          
+        </div>
+        <!-- Main content END -->
+  
+        <!-- Right sidebar START -->
+        <div class="col-lg-3">
+          <app-card-usuarios></app-card-usuarios>
+        </div>
+        <!-- Right sidebar END -->
+  
+      </div> <!-- Row END -->
+    </div>
+    <!-- Container END -->
+  
+  </main>
+  <!-- **************** MAIN CONTENT END **************** -->
+
+

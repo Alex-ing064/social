@@ -2,7 +2,7 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" [routerLink]="['/']" >
                 <span id="text-logo">
                     Red Social
                 </span>
@@ -24,7 +24,7 @@
                     <div class="nav-item w-100">
                         <div class="rounded position-relative">
                             <input class="form-control ps-5 bg-light" type="search" placeholder="Buscar usuario"
-                                aria-label="Search">
+                                aria-label="Search" name="search" [(ngModel)]="search" (keyup.ENTER)="search_usuario()">
                             <button
                                 class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y"
                                 type="button"><i class="bi bi-search fs-5"> </i></button>

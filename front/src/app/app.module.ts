@@ -20,6 +20,7 @@ import { InvitacionesUsuarioComponent } from './components/cuenta/invitaciones-u
 import { CardPerfilComponent } from './components/card-perfil/card-perfil.component';
 import { CardHistoriasComponent } from './components/card-historias/card-historias.component';
 import { CardUsuariosComponent } from './components/card-usuarios/card-usuarios.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CardUsuariosComponent } from './components/card-usuarios/card-usuarios.
     InvitacionesUsuarioComponent,
     CardPerfilComponent,
     CardHistoriasComponent,
-    CardUsuariosComponent
+    CardUsuariosComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
