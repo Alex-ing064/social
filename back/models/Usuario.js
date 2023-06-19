@@ -23,4 +23,3 @@ var UsuarioSchema = Schema({
 });
 
 module.exports = mongoose.model('usuario',UsuarioSchema);
-//module.exports = mongoose.model('usuario',UsuarioSchema);

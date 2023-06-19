@@ -1,4 +1,3 @@
-
 var Usuario_amigo = require('../models/Usuario_amigo');
 var Historia = require('../models/Historia');
 var fs = require('fs');
@@ -7,8 +6,6 @@ var path = require('path');
 const createStory = async function (req, res) {
     if (req.user) {
 
-        //req.body
-        //req.files
         let img_path = req.files.imagen.path.split('\\')[2];
 
         let exp = new Date();
@@ -38,7 +35,6 @@ const obtener_historias_usuario = async function (req, res) {
         for (var item of amigos) {
             var historias_vigentes = [];
             var historias = await Historia.find({ usuario: item.usuario_amigo._id }).populate('usuario');
-            // var historias = await Historia.find({ usuario: item.usuario_origen._id }).populate('usuario');
 
 
             for (var subitem of historias) {

@@ -78,6 +78,13 @@ export class UsuarioService {
     return this._http.get(this.url + 'obtener_historias_usuario', { headers: headers })
   }
 
+  obtener_usuarios(filtro:any,token: any): Observable<any> {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': token });
+    return this._http.get(this.url + 'obtener_usuarios/'+ filtro, { headers: headers })
+  }
+
+ 
+
  
 
   isAuthenticate(){

@@ -13,6 +13,7 @@ var handlebars = require('handlebars');
 var ejs = require('ejs');
 var nodemailer = require('nodemailer');
 var smtp = require('nodemailer-smtp-transport');
+const { Collection } = require('mongoose');
 
 
 
@@ -35,6 +36,7 @@ const create_usuario = async function(req,res){
 
         bcrypt.genSalt(saltRounds, function(err, salt) {
             bcrypt.hash(data.password, salt, async function(err, hash) {
+                // Store hash in your password DB.
                 data.password = hash;
                 data.username = '@'+uniqueUsernameGenerator(config);
                 let usuario = await Usuario.create(data);
@@ -53,6 +55,7 @@ const login_usuario = async function(req,res){
     let usuario = await Usuario.find({email:data.email});
 
     if(usuario.length >= 1){
+        //correo existe
         bcrypt.compare(data.password, usuario[0].password, function(err, result) {
             // result == true
             if(!err){
@@ -192,6 +195,7 @@ const reset_password = async function(req,res){
 }
 
 
+/////INVITACIONES DE AMISTAD
 
 const send_invitacion_amistad = async function(req,res){
     if (req.user) {
@@ -213,6 +217,7 @@ const get_usuario_random = async function(req,res){
         let usuarios_amigos = await Usuario_amigo.find({usuario_origen:req.user.sub});
         let count = 0;
         for(var item of usuarios){
+            //QUITAR USUARIOS A QUIENES SE ENVIA UNA INVITACIÓN
             let reg_enviadas = invitaciones_enviadas.filter(subitem=> subitem.usuario_destinatario.toString() == item._id.toString());
 
             let reg_recibidas = invitaciones_recibidas.filter(subitem=> subitem.usuario_origen.toString() == item._id.toString());
@@ -255,25 +260,29 @@ const get_invitaciones_usuario= async function(req,res){
 
 const aceptar_denegar_invitacion = async function(req,res){
     if (req.user) {
-        let tipo = req.params['tipo'];
+        let tipo = req.params['tipo'];//Denegar Aprobar 
         let id = req.params['id'];
 
         if(tipo === 'Denegar'){
+            //ELIMINAR LA INVITACION
             await Usuario_invitacion.findOneAndRemove({_id:id});
             res.status(200).send({data:true});
         }else if(tipo === 'Aprobar'){
+            //OBTENER LA INFORMACION DE LA INVITACIÓN
             let invitacion = await Usuario_invitacion.findById({_id:id});
 
+            //CREAR LA RELACION DE AMIGO
             await Usuario_amigo.create({
-                usuario_origen: req.user.sub, 
-                usuario_amigo: invitacion.usuario_origen 
+                usuario_origen: req.user.sub, //Sheldon YO
+                usuario_amigo: invitacion.usuario_origen //Diego
             });
             
             await Usuario_amigo.create({
-                usuario_origen: invitacion.usuario_origen, 
-                usuario_amigo:  req.user.sub
+                usuario_origen: invitacion.usuario_origen, //Diego
+                usuario_amigo:  req.user.sub//Sheldon YO
             });
 
+            //ELIMINAR LA INVITACIÓN
             await Usuario_invitacion.findOneAndRemove({_id:id});
             res.status(200).send({data:true});
         }
@@ -281,6 +290,28 @@ const aceptar_denegar_invitacion = async function(req,res){
         res.status(403).send({message: 'NoAccess'}); 
     }
 }
+
+
+const obtener_usuarios = async function(req,res){
+    if (req.user) {
+        let filtro = req.params['filtro'];
+        
+        var usuarios = await Usuario.find({
+            $or: [
+                {nombres: new RegExp(filtro,'i')},
+                {apellidos: new RegExp(filtro,'i')}
+            ],_id:{$ne:req.user.sub}
+        });
+
+
+        res.status(200).send({data:usuarios});
+
+    } else {
+        res.status(403).send({message: 'NoAccess'}); 
+    }
+}
+
+
 
 function email_code_reset(code,email){
     try {
@@ -298,8 +329,8 @@ function email_code_reset(code,email){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: '',
-                pass: ''
+                user: 'diegoarca02@gmail.com',
+                pass: 'ogfvvlxksebtrkfj'
             }
         }));
     
@@ -310,7 +341,7 @@ function email_code_reset(code,email){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: '"Red Social" <>',
+                from: '"Red Social" <diegoarca02@gmail.com>',
                 to: email,
                 subject: 'Código de restablecimiento',
                 html: htmlToSend
@@ -329,6 +360,7 @@ function email_code_reset(code,email){
     }
 }
 
+
 module.exports = {
     create_usuario,
     login_usuario,
@@ -343,5 +375,5 @@ module.exports = {
     get_usuario_random,
     get_invitaciones_usuario,
     aceptar_denegar_invitacion,
-    
+    obtener_usuarios
 }

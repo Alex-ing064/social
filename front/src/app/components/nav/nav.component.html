@@ -1,13 +1,11 @@
 <header class="navbar-light fixed-top header-static bg-mode">
-
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" [routerLink]="['/']" >
+            <a class="navbar-brand" [routerLink]="['/']">
                 <span id="text-logo">
                     Red Social
                 </span>
             </a>
-
             <button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -17,9 +15,7 @@
                     <span></span>
                 </span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarCollapse">
-
                 <div class="nav mt-3 mt-lg-0 flex-nowrap align-items-center px-4 px-lg-0">
                     <div class="nav-item w-100">
                         <div class="rounded position-relative">
@@ -33,9 +29,7 @@
                 </div>
 
             </div>
-
             <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
-
                 <li class="nav-item dropdown ms-2">
                     <a class="nav-link icon-md btn btn-light p-0" href="#" id="notifDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
@@ -50,7 +44,6 @@
                                     <span
                                         class="badge bg-danger bg-opacity-10 text-danger ms-2">{{invitaciones.length}}</span>
                                 </h6>
-
                             </div>
                             <div class="card-body p-0" style="max-height: 280px !important;
                             overflow: hidden !important;
@@ -90,7 +83,6 @@
                                                 </div>
                                             </div>
                                         </li>
-
                                     </ul>
                                 </ng-container>
                                 <div class="text-center"
@@ -107,7 +99,6 @@
                         </div>
                     </div>
                 </li>
-
                 <li class="nav-item ms-2 dropdown">
                     <a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button"
                         data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
@@ -133,7 +124,8 @@
                                 href="my-profile.html">Ver perfil</a>
                         </li>
                         <li><a class="dropdown-item" [routerLink]="['/cuenta/configuracion']"
-                                routerLinkActive="router-link-active"><i class="bi bi-gear fa-fw me-2"></i>Mi cuenta</a></li>
+                                routerLinkActive="router-link-active"><i class="bi bi-gear fa-fw me-2"></i>Mi cuenta</a>
+                        </li>
                         <li>
                         </li>
                         <li>
@@ -144,8 +136,6 @@
                         <li class="dropdown-divider"></li>
                         <li><a class="dropdown-item bg-danger-soft-hover" style="cursor: pointer;" (click)="logout()"><i
                                     class="bi bi-power fa-fw me-2"></i>Cerrar sesión</a></li>
-
-
                     </ul>
                 </li>
             </ul>

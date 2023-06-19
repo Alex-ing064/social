@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HistoriaService } from "src/app/services/historia.service";
 import { UsuarioService } from 'src/app/services/usuario.service';
 declare var e: any;
@@ -35,9 +35,6 @@ export class CardHistoriasComponent {
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
-
-
-
     this.init_historias();
   }
 

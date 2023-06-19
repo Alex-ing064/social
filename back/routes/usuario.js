@@ -18,6 +18,6 @@ app.post('/send_invitacion_amistad',auth.auth,usuarioController.send_invitacion_
 app.get('/get_usuario_random',auth.auth,usuarioController.get_usuario_random);
 app.get('/get_invitaciones_usuario/:tipo',auth.auth,usuarioController.get_invitaciones_usuario);
 app.get('/aceptar_denegar_invitacion/:tipo/:id',auth.auth,usuarioController.aceptar_denegar_invitacion);
-
+app.get('/obtener_usuarios/:id',auth.auth,usuarioController.obtener_usuarios);
 
 module.exports = app;

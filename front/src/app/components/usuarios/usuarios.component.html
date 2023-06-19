@@ -16,31 +16,47 @@
         <!-- Main content START -->
         <div class="col-md-8 col-lg-6 vstack gap-4">
           
-          <app-card-historias></app-card-historias>
-          
-            <div class="card">
+            <app-card-historias></app-card-historias>
+
+            <ng-container *ngIf="load_data">
+              <div class="text-center py-3" style="margin-top: 1rem;">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            </ng-container>
+            <ng-container *ngIf="!load_data">
+              <div class="card" *ngFor="let item of usuarios">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
-                          <!-- Avatar -->
-                          <div class="avatar avatar-story me-2">
-                            <a href="#!"> <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt=""> </a>
-                          </div>
-                          <!-- Info -->
-                          <div>
-                            <div class="nav nav-divider">
-                              <h6 class="nav-item card-title mb-0"> <a href="#!"> Lori Ferguson </a></h6>
-                              <span class="nav-item small"> 2hr</span>
+                            <!-- Avatar -->
+                            <div class="avatar avatar-story me-2">
+                                <a href="#!"> <img class="avatar-img rounded-circle" src="assets/images/avatar/placeholder.jpg" alt=""> </a>
                             </div>
-                            <p class="mb-0 small">Web Developer at Webestica</p>
-                          </div>
+                            <!-- Info -->
+                            <div>
+                                <div class="nav nav-divider">
+                                    <h6 class="nav-item card-title mb-0"> <a href="#!"> {{item.nombres}}  {{item.apellidos}}</a></h6>
+                                    <span class="nav-item small"> {{item.username}}</span>
+                                </div>
+                                <p class="small mb-0" *ngIf="item.profesion">
+                                    {{item.profesion}}
+                                </p>
+                                <p class="small mb-0" *ngIf="!item.profesion">
+                                    {{item.email}}
+                                </p>
+                            </div>
                         </div>
                         <!-- Card feed action dropdown START -->
-                        <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" style="cursor: pointer;" ><i class="fa-solid fa-plus"> </i></a>
+                        <a class="btn btn-primary-soft btn-sm" style="cursor: pointer;">
+                          Ver perfil
+                        </a>
                         <!-- Card feed action dropdown END -->
-                      </div>
+                    </div>
                 </div>
             </div>
+            </ng-container>
           
         </div>
         <!-- Main content END -->

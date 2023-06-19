@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { io } from "socket.io-client";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -19,7 +19,8 @@ export class NavComponent implements OnInit {
 
   constructor(
     private _usuarioService:UsuarioService,
-    private _router:Router
+    private _router:Router,
+    private _route:ActivatedRoute
   ) { 
     this.user = JSON.parse(localStorage.getItem('user')!);
     console.log(this.user);
@@ -27,6 +28,11 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._route.queryParams.subscribe(
+      (params:any)=>{       
+        this.search = params['search'];
+      }
+    );
     this.init_invitaciones();
     this.socket.on('new-invitacion',function(data:any){
       console.log(data);
