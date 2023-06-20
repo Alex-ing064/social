@@ -32,6 +32,7 @@ const obtener_historias_usuario = async function (req, res) {
         let today = Date.parse(new Date()) / 1000;
         var historias_vigentes_ = [];
 
+
         for (var item of amigos) {
             var historias_vigentes = [];
             var historias = await Historia.find({ usuario: item.usuario_amigo._id }).populate('usuario');
@@ -49,6 +50,7 @@ const obtener_historias_usuario = async function (req, res) {
         }
 
         res.status(200).send({ data: historias_vigentes_ });
+
     } else {
         res.status(403).send({ message: 'NoAccess' });
     }

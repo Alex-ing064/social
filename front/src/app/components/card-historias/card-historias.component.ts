@@ -36,6 +36,8 @@ export class CardHistoriasComponent {
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!);
     this.init_historias();
+    
+
   }
 
   init_historias() {
@@ -43,6 +45,8 @@ export class CardHistoriasComponent {
     this._usuarioService.obtener_historias_usuario(this.token).subscribe(
       response => {
         this.historias = response.data;
+        console.log(this.historias);
+
         setTimeout(() => {
           e.tinySlider();
         }, 50);
