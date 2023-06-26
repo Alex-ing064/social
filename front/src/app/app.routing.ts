@@ -9,6 +9,8 @@ import { ResetPasswordComponent } from "./components/reset-password/reset-passwo
 import { AuthGuard } from "./guards/auth.guard";
 import { InvitacionesUsuarioComponent } from "./components/cuenta/invitaciones-usuario/invitaciones-usuario.component";
 import { UsuariosComponent } from "./components/usuarios/usuarios.component";
+import { PerfilComponent } from "./components/cuenta/perfil/perfil.component";
+import { SidebarPerfilComponent } from "./components/cuenta/sidebar-perfil/sidebar-perfil.component";
 
 const appRoutes: Routes = [
     {
@@ -54,6 +56,11 @@ const appRoutes: Routes = [
     {
 
         path: 'search', component:  UsuariosComponent, canActivate: [AuthGuard]
+
+    },
+    {
+
+        path: 'cuenta/:username', component:  SidebarPerfilComponent, canActivate: [AuthGuard]
 
     }
     

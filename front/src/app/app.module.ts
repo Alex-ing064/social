@@ -21,6 +21,8 @@ import { CardPerfilComponent } from './components/card-perfil/card-perfil.compon
 import { CardHistoriasComponent } from './components/card-historias/card-historias.component';
 import { CardUsuariosComponent } from './components/card-usuarios/card-usuarios.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { PerfilComponent } from './components/cuenta/perfil/perfil.component';
+import { SidebarPerfilComponent } from './components/cuenta/sidebar-perfil/sidebar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     CardPerfilComponent,
     CardHistoriasComponent,
     CardUsuariosComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    PerfilComponent,
+    SidebarPerfilComponent
   ],
   imports: [
     BrowserModule,

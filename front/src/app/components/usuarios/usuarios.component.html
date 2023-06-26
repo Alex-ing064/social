@@ -32,12 +32,12 @@
                         <div class="d-flex align-items-center">
                             <!-- Avatar -->
                             <div class="avatar avatar-story me-2">
-                                <a href="#!"> <img class="avatar-img rounded-circle" src="assets/images/avatar/placeholder.jpg" alt=""> </a>
+                                <a> <img class="avatar-img rounded-circle" src="assets/images/avatar/placeholder.jpg" alt=""> </a>
                             </div>
                             <!-- Info -->
                             <div>
                                 <div class="nav nav-divider">
-                                    <h6 class="nav-item card-title mb-0"> <a href="#!"> {{item.nombres}}  {{item.apellidos}}</a></h6>
+                                    <h6 class="nav-item card-title mb-0"> <a> {{item.nombres}}  {{item.apellidos}}</a></h6>
                                     <span class="nav-item small"> {{item.username}}</span>
                                 </div>
                                 <p class="small mb-0" *ngIf="item.profesion">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <!-- Card feed action dropdown START -->
-                        <a class="btn btn-primary-soft btn-sm" style="cursor: pointer;">
+                        <a [routerLink]="['/cuenta', item.username]" class="btn btn-primary-soft btn-sm" style="cursor: pointer;">
                           Ver perfil
                         </a>
                         <!-- Card feed action dropdown END -->

@@ -11,6 +11,7 @@ var UsuarioSchema = Schema({
     genero:{type:String, require:false},
     telefono: {type: String, required: false},
     avatar: {type: String, default: 'defecto.png', required: false},
+    portada: {type: String, required: false},
 
     estado: {type: Boolean, default: false, required: false},
     descripcion: {type: String, required: false},

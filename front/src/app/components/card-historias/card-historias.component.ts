@@ -19,7 +19,7 @@ export class CardHistoriasComponent {
   public msm_story_error = '';
   public str_image: any = '';
   public image: any = undefined;
-  public socket = io("http://localhost:4201", { transports: ['websocket'] });
+  public socket = io("http://localhost:4200", { transports: ['websocket'] });
   public usuarios: Array<any> = [];
   public historias: Array<any> = [];
   public url = GLOBAL.url;
@@ -98,5 +98,8 @@ export class CardHistoriasComponent {
     this.str_image = '';
     this.image = undefined;
   }
+
+
+  
 
 }
